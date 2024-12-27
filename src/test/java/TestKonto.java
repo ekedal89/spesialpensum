@@ -1,8 +1,7 @@
 import org.example.Konto;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.junit.jupiter.api.Assertions.*;
 
 public class TestKonto {
 
@@ -30,5 +29,12 @@ public class TestKonto {
     public void testUlovligBelopVedUttak() {
         Konto konto = new Konto(12345, 1000);
         assertThrows(IllegalArgumentException.class, () -> konto.taUt(2000)); // Uttak overstiger saldo
+    }
+
+    @Test
+    public void testTomKonto() {
+        Konto konto = new Konto(0, 0); // Oppretter konto med saldo 0
+        assertNotNull(konto); // Sjekker at konto er opprettet (ikke null)
+        assertEquals(0, konto.getSaldo()); // Sjekker at saldoen er 0
     }
 }
