@@ -39,11 +39,26 @@ public class TestKonto {
     }
 
     @Test
-    public void testFlereOperasjoner() {
-        Konto konto = new Konto(12345, 1000);
-        konto.setteInn(500); // Saldo = 1500
-        konto.taUt(300); // Saldo = 1200
-        assertEquals(1200, konto.getSaldo(), "Saldo etter flere operasjoner bør være korrekt.");
+    public void testHelhetligScenario() {
+        Konto konto = new Konto(12345, 1000); // Konto med saldo 1000
+
+        // Setter inn penger
+        konto.setteInn(500); // Saldo skal nå være 1500
+        assertEquals(1500, konto.getSaldo(), "Saldoen etter innskudd er feil.");
+
+        // Tar ut penger
+        konto.taUt(300); // Saldo skal nå være 1200
+        assertEquals(1200, konto.getSaldo(), "Saldoen etter uttak er feil.");
+
+        // Henter kontoinformasjon og validerer innholdet
+        String forventetInfo = "Kontonummer: 12345\nSaldo: 1200";
+        assertEquals(forventetInfo, konto.infoKonto(), "Kontoinformasjonen stemmer ikke.");
+
+        // Tester nye innskudd og uttak
+        konto.setteInn(100); // Saldo skal nå være 1300
+        konto.taUt(1300);    // Saldo skal nå være 0
+        assertEquals(0, konto.getSaldo(), "Saldoen etter flere operasjoner er feil.");
     }
+
 
 }
