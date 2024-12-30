@@ -37,4 +37,13 @@ public class TestKonto {
         assertNotNull(konto); // Sjekker at konto er opprettet (ikke null)
         assertEquals(0, konto.getSaldo()); // Sjekker at saldoen er 0
     }
+
+    @Test
+    public void testFlereOperasjoner() {
+        Konto konto = new Konto(12345, 1000);
+        konto.setteInn(500); // Saldo = 1500
+        konto.taUt(300); // Saldo = 1200
+        assertEquals(1200, konto.getSaldo(), "Saldo etter flere operasjoner bør være korrekt.");
+    }
+
 }
