@@ -1,6 +1,5 @@
-name: Maven CI
+name: Maven CI/CD
 
-# Trigger workflow på push eller pull requests til main branch
 on:
   push:
     branches:
@@ -14,21 +13,26 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      # Sjekk ut koden fra repository
       - name: Checkout repository
         uses: actions/checkout@v3
 
-      # Sett opp JDK 21
       - name: Setup JDK 21
         uses: actions/setup-java@v3
         with:
           java-version: '21'
           distribution: 'temurin'
 
-      # Bygg prosjektet
       - name: Build project
         run: mvn clean compile
 
-      # Kjøre alle JUnit-tester
       - name: Run tests
         run: mvn test
+
+      - name: Package project
+        run: mvn clean package
+
+      - name: Upload artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: my-java-app
+          path: target/*.jar
