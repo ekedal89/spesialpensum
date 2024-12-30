@@ -60,5 +60,3 @@ public class TestKonto {
         assertEquals(0, konto.getSaldo(), "Saldoen etter flere operasjoner er feil.");
     }
 }
-
-// slutt
