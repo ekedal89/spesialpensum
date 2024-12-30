@@ -59,6 +59,4 @@ public class TestKonto {
         konto.taUt(1300);    // Saldo skal nå være 0
         assertEquals(0, konto.getSaldo(), "Saldoen etter flere operasjoner er feil.");
     }
-
-
 }
