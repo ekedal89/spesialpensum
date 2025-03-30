@@ -36,3 +36,6 @@ jobs:
         with:
           name: my-java-app
           path: target/*.jar
+
+      - name: Pseudo Deploy
+        run: echo "Her kunne vi nå ha deployet *.jar-filen til et staging/produksjonsmiljø."
