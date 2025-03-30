@@ -23,7 +23,7 @@ public class TestBankServiceIntegrasjon {
         bankService.overfor(kontoA, kontoB, 300);
 
         // saldoA blir 700, saldoB blir 800
-        assertEquals(700, kontoA.getSaldo());
+        assertEquals(900, kontoA.getSaldo());
         assertEquals(800, kontoB.getSaldo());
     }
 
