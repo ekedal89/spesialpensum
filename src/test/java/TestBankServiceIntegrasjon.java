@@ -48,3 +48,4 @@ public class TestBankServiceIntegrasjon {
                 () -> bankService.overfor(null, kontoB, 100));
     }
 }
+//
