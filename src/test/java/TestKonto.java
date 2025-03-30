@@ -16,7 +16,7 @@ public class TestKonto {
     public void testTaUt() {
         Konto konto = new Konto(12345, 1000); // Oppretter konto med startsaldo 1000
         konto.taUt(300); // Tar ut 300
-        assertEquals(700, konto.getSaldo()); // Sjekker at saldo reduseres
+        assertEquals(700, konto.getSaldo()); // Sjekker at saldo reduseres.
     }
 
     @Test
